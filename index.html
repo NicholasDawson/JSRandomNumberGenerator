@@ -24,7 +24,7 @@
             min = max;
             max = temp;
         }
-        return parseInt(Math.random() * (max - min) + min);
+        return parseInt((Math.random() * (max + 1 - min) + min) + 1);
     }
 
     function generateRandomNumber() {
