@@ -9,7 +9,7 @@
 <h2 id="generatedNum">0</h2>
 
 <form id="form1">
-    <h4>Enter Number Range:</h4>
+    <h4>Enter Number Range (this program includes both the min and the max):</h4>
     <label for="num1">From:</label>
     <input type="number" id="num1" name="num1">
     <label for="num2">To:</label>
@@ -18,19 +18,16 @@
 </form>
 
 <script>
-    function getRandomArbitrary(min, max) {
-        if (min > max) {
-            const temp = min;
-            min = max;
-            max = temp;
-        }
-        return parseInt((Math.random() * (max + 1 - min) + min) + 1);
+    function getRandomIntInclusive(min, max) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min + 1) + min); //The maximum is inclusive and the minimum is inclusive 
     }
 
     function generateRandomNumber() {
         const inputMin = document.getElementById("num1").value;
         const inputMax = document.getElementById("num2").value;
-        document.getElementById("generatedNum").innerHTML = getRandomArbitrary(inputMin, inputMax).toString();
+        document.getElementById("generatedNum").innerHTML = getRandomIntInclusive(inputMin, inputMax).toString();
     }
 </script>
 
